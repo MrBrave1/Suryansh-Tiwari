@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Suryansh Tiwari – EHS Safety Professional</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --ink: #1a1a2e;
+      --accent: #c0392b;
+      --gold: #d4a017;
+      --light: #f7f4ef;
+      --mid: #e8e2d9;
+      --muted: #6b6560;
+      --white: #ffffff;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background: var(--light);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    .page {
+      max-width: 900px;
+      margin: 40px auto;
+      background: var(--white);
+      box-shadow: 0 8px 60px rgba(0,0,0,0.12);
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      min-height: 1100px;
+    }
+
+    /* ===== LEFT SIDEBAR ===== */
+    .sidebar {
+      background: var(--ink);
+      color: var(--white);
+      padding: 48px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+    }
+
+    .name-block { border-bottom: 2px solid var(--accent); padding-bottom: 24px; }
+
+    .name-block h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.85rem;
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+    }
+
+    .name-block .title {
+      font-size: 0.78rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 8px;
+      font-weight: 600;
+    }
+
+    .section-label {
+      font-size: 0.65rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(212,160,23,0.3);
+    }
+
+    .contact-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .contact-list li { font-size: 0.82rem; display: flex; align-items: flex-start; gap: 10px; color: rgba(255,255,255,0.85); }
+    .contact-list li .icon { font-size: 0.9rem; color: var(--gold); min-width: 16px; margin-top: 1px; }
+
+    .skill-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .skill-item label { font-size: 0.8rem; color: rgba(255,255,255,0.8); display: block; margin-bottom: 5px; }
+    .skill-bar { height: 3px; background: rgba(255,255,255,0.12); border-radius: 2px; overflow: hidden; }
+    .skill-fill { height: 100%; background: var(--accent); border-radius: 2px; }
+
+    .cert-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .cert-list li {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.8);
+      padding: 8px 12px;
+      border-left: 2px solid var(--accent);
+      background: rgba(255,255,255,0.04);
+    }
+    .cert-list li strong { display: block; color: var(--white); font-size: 0.83rem; }
+
+    .lang-list { display: flex; gap: 10px; flex-wrap: wrap; }
+    .lang-tag {
+      font-size: 0.75rem;
+      padding: 4px 12px;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 20px;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .info-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .info-list li { font-size: 0.8rem; color: rgba(255,255,255,0.75); }
+    .info-list li strong { color: var(--white); display: block; font-size: 0.77rem; letter-spacing: 0.5px; }
+
+    /* ===== MAIN CONTENT ===== */
+    .main {
+      padding: 48px 44px;
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+    }
+
+    .main-section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -0.3px;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .main-section-title::before {
+      content: '';
+      width: 28px;
+      height: 3px;
+      background: var(--accent);
+      display: inline-block;
+      border-radius: 2px;
+    }
+
+    /* Objective */
+    .objective-text {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.75;
+      border-left: 3px solid var(--mid);
+      padding-left: 18px;
+    }
+
+    /* Experience */
+    .exp-card {
+      border: 1px solid var(--mid);
+      border-radius: 4px;
+      padding: 20px 22px;
+      position: relative;
+      background: #fdfcfa;
+    }
+
+    .exp-card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 4px;
+      background: var(--accent);
+      border-radius: 4px 0 0 4px;
+    }
+
+    .exp-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 6px; margin-bottom: 6px; }
+    .exp-role { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; }
+    .exp-period {
+      font-size: 0.75rem;
+      background: var(--ink);
+      color: var(--white);
+      padding: 3px 10px;
+      border-radius: 2px;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+    .exp-company { font-size: 0.82rem; color: var(--accent); font-weight: 600; margin-bottom: 14px; }
+    .exp-duties { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    .exp-duties li {
+      font-size: 0.83rem;
+      color: var(--muted);
+      padding-left: 18px;
+      position: relative;
+    }
+    .exp-duties li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 0.7rem;
+      top: 3px;
+    }
+
+    /* Education Table */
+    .edu-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+    .edu-table thead tr { background: var(--ink); color: var(--white); }
+    .edu-table thead th { padding: 10px 14px; text-align: left; font-weight: 600; letter-spacing: 0.3px; font-size: 0.78rem; }
+    .edu-table tbody tr { border-bottom: 1px solid var(--mid); }
+    .edu-table tbody tr:nth-child(even) { background: #fdfcfa; }
+    .edu-table tbody td { padding: 10px 14px; color: var(--muted); vertical-align: top; }
+    .edu-table tbody td:first-child { color: var(--ink); font-weight: 600; }
+    .badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: 2px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+    .badge-gold { background: #fef3cd; color: #856404; }
+    .badge-pending { background: #fff3cd; color: #664d03; }
+
+    /* Print styles */
+    @media print {
+      body { background: white; }
+      .page { box-shadow: none; margin: 0; max-width: 100%; }
+    }
+
+    @media (max-width: 680px) {
+      .page { grid-template-columns: 1fr; }
+      .sidebar { padding: 36px 24px; }
+      .main { padding: 36px 24px; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ====== SIDEBAR ====== -->
+  <aside class="sidebar">
+
+    <div class="name-block">
+      <h1>Suryansh<br/>Tiwari</h1>
+      <div class="title">EHS Safety Professional</div>
+    </div>
+
+    <!-- Contact -->
+    <div>
+      <div class="section-label">Contact</div>
+      <ul class="contact-list">
+        <li><span class="icon">📞</span> +91 9369187131</li>
+        <li><span class="icon">✉</span> tsuryansh48@gmail.com</li>
+        <li><span class="icon">📍</span> Kandipur, Pura Bazaar, Ayodhya, Uttar Pradesh – 224171</li>
+      </ul>
+    </div>
+
+    <!-- Core Skills -->
+    <div>
+      <div class="section-label">Core Skills</div>
+      <ul class="skill-list">
+        <li class="skill-item">
+          <label>Risk Assessment & Control</label>
+          <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+        </li>
+        <li class="skill-item">
+          <label>PPE Compliance Monitoring</label>
+          <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+        </li>
+        <li class="skill-item">
+          <label>Safety Training & Toolbox Talks</label>
+          <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+        </li>
+        <li class="skill-item">
+          <label>Hazard Identification</label>
+          <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+        </li>
+        <li class="skill-item">
+          <label>Construction Site Safety</label>
+          <div class="skill-bar"><div class="skill-fill" style="width:87%"></div></div>
+        </li>
+        <li class="skill-item">
+          <label>Electrical Safety (ITI)</label>
+          <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Certifications -->
+    <div>
+      <div class="section-label">Certifications</div>
+      <ul class="cert-list">
+        <li><strong>Diploma in Fire & Safety</strong>NCVTE – First Class (Jun 2025)</li>
+        <li><strong>Diploma in Fire & Safety</strong>MSBT – Result Awaited</li>
+        <li><strong>ITI – Electrician (NSQF L5)</strong>NCVT – Dec 2023</li>
+        <li><strong>A.D.C.A</strong>Computer Applications</li>
+      </ul>
+    </div>
+
+    <!-- Languages -->
+    <div>
+      <div class="section-label">Languages</div>
+      <div class="lang-list">
+        <span class="lang-tag">Hindi</span>
+        <span class="lang-tag">English</span>
+      </div>
+    </div>
+
+    <!-- Personal Info -->
+    <div>
+      <div class="section-label">Personal</div>
+      <ul class="info-list">
+        <li><strong>Date of Birth</strong>17 September 2000</li>
+        <li><strong>Nationality</strong>Indian</li>
+        <li><strong>Marital Status</strong>Married</li>
+        <li><strong>Hobbies</strong>Reading, Music, Travelling</li>
+      </ul>
+    </div>
+
+  </aside>
+
+  <!-- ====== MAIN ====== -->
+  <main class="main">
+
+    <!-- Career Objective -->
+    <section>
+      <div class="main-section-title">Career Objective</div>
+      <p class="objective-text">
+        A dedicated and safety-oriented EHS professional with hands-on experience in construction site safety, PPE monitoring, and risk assessment. Seeking a responsible career opportunity to fully utilize my skills in fire & safety management while contributing meaningfully to the operational success and safety culture of a progressive organization.
+      </p>
+    </section>
+
+    <!-- Work Experience -->
+    <section>
+      <div class="main-section-title">Work Experience</div>
+
+      <div style="display:flex; flex-direction:column; gap:16px;">
+
+        <!-- Job 2 -->
+        <div class="exp-card">
+          <div class="exp-header">
+            <div class="exp-role">Safety Inspector</div>
+            <div class="exp-period">Jan 2025 – Feb 2026</div>
+          </div>
+          <div class="exp-company">Aakash Group (Total Manpower Solution) · Delhi</div>
+          <ul class="exp-duties">
+            <li>Managed EHS compliance and safety operations at assigned construction sites</li>
+            <li>Conducted toolbox talks, safety inductions, and worker training sessions</li>
+            <li>Performed daily site inspections and documented hazard reports</li>
+            <li>Coordinated with supervisors to implement corrective and preventive actions</li>
+          </ul>
+        </div>
+
+        <!-- Job 1 -->
+        <div class="exp-card">
+          <div class="exp-header">
+            <div class="exp-role">EHS Safety Inspector</div>
+            <div class="exp-period">Dec 2023 – Jan 2025</div>
+          </div>
+          <div class="exp-company">Universal MEP Project & Engineering Service Ltd. · IKEA GMP Project, Gurugram</div>
+          <ul class="exp-duties">
+            <li>Conducted daily toolbox talks and safety meetings for construction workforce</li>
+            <li>Performed risk assessments and implemented appropriate control measures</li>
+            <li>Monitored PPE usage and maintained housekeeping standards across the site</li>
+            <li>Ensured compliance with client-specific and project-specific safety requirements</li>
+            <li>Provided hands-on safety training to workers on hazard prevention</li>
+            <li>Coordinated material storage, logistics safety, and worker coordination</li>
+            <li>Identified and reported workplace hazards with timely resolution follow-up</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section>
+      <div class="main-section-title">Academic Qualifications</div>
+      <table class="edu-table">
+        <thead>
+          <tr>
+            <th>Qualification</th>
+            <th>Board / University</th>
+            <th>Year</th>
+            <th>Score</th>
+            <th>Division</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>High School</td>
+            <td>S.N.S.A.I.C. Rampur Sardha, Faizabad</td>
+            <td>2016</td>
+            <td>80%</td>
+            <td><span class="badge badge-gold">1st</span></td>
+          </tr>
+          <tr>
+            <td>Intermediate (Class XII)</td>
+            <td>Shri Balwant Adarsh S.U.M.V., Dugawa, Devghar, Faizabad</td>
+            <td>2021</td>
+            <td>68%</td>
+            <td><span class="badge badge-gold">1st</span></td>
+          </tr>
+          <tr>
+            <td>Diploma – Fire & Safety</td>
+            <td>NCVTE / Champaran Industrial Fire & Safety Management</td>
+            <td>2025</td>
+            <td>72.33%</td>
+            <td><span class="badge badge-gold">1st</span></td>
+          </tr>
+          <tr>
+            <td>Diploma – Fire & Safety</td>
+            <td>MSBT</td>
+            <td>—</td>
+            <td>—</td>
+            <td><span class="badge badge-pending">Awaited</span></td>
+          </tr>
+          <tr>
+            <td>ITI – Electrician (NSQF L5)</td>
+            <td>NCVT · Harikaran Dwivedi Pvt. ITI, Sultanpur, UP</td>
+            <td>2023</td>
+            <td>1008/1200</td>
+            <td><span class="badge badge-gold">Pass</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Declaration -->
+    <section style="margin-top:auto;">
+      <div style="border-top:1px solid var(--mid); padding-top:20px;">
+        <p style="font-size:0.78rem; color:var(--muted); font-style:italic;">
+          I hereby declare that the information furnished above is true and correct to the best of my knowledge and belief.
+        </p>
+        <p style="font-size:0.82rem; color:var(--ink); margin-top:10px; font-weight:600;">Suryansh Tiwari</p>
+        <p style="font-size:0.75rem; color:var(--muted);">Date: March 2026 &nbsp;|&nbsp; Place: Ayodhya, Uttar Pradesh</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+</body>
+</html>
